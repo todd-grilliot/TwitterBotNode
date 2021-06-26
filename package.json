@@ -1,0 +1,14 @@
+{
+  "name": "node-for-twit",
+  "version": "1.0.0",
+  "description": "im not actually totally sure what im making but this is a JSON file that ill use as im using twit in node for a twitter bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Todd Grilliot",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
