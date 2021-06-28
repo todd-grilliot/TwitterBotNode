@@ -46,7 +46,7 @@ dailyCounter++
 
 //setInterval(DailyTweet, 1000*60*60*24);
 
-
+var b64content = fs.readFileSync('/path/to/img', { encoding: 'base64' })
 
 /*
 function TweetIt(){

@@ -1,3 +1,4 @@
+//keys de tu madre
 module.exports = {
 consumer_key:         '42UWQf8t9J8yJcYvzELRNiqN3',
 consumer_secret:      'IUjtPQl71sq0NzprhBOGyVkp412FPjrB8MXJ8pe94TS7vIXeA3',
