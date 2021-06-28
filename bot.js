@@ -1,14 +1,15 @@
-console.log("the code is running?! howwdy");
+console.log("starting bot.js bois...");
 
 var Twit = require('twit');
 var Config = require('./config');
 var KnockJokes = require('./knockjokes');
-
+var Content = require('./content.json');
+var fs = require('fs');
 //OAUTH baby
 var T = new Twit(Config);
 //done OAUTH
 
-var LastTweetid = 1408251027262898200;
+var dailyCounter = 0;
 
 //search for posts
 /*
@@ -29,9 +30,25 @@ T.get('search/tweets', { q: 'banana since:2011-07-11', count: 2 }, function(err,
     })
 */
 
-/*
-setInterval(TweetIt, 1000*20);
+/*function DailyTweet(){
+  var tweet = {
+    status: Content[dailyCounter].text;
+    attachment_url:Content[dailyCounter].image
+  }
 
+  T.post('statuses/update', tweet, function(err, data, response){
+  console.log("posting " + Content[dailyCounter].text);
+  console.log("posting " + Content[dailyCounter].image);
+  })
+
+dailyCounter++
+}*/
+
+//setInterval(DailyTweet, 1000*60*60*24);
+
+
+
+/*
 function TweetIt(){
   var randy = Math.floor(Math.random() * 100);
   
@@ -49,7 +66,8 @@ function TweetIt(){
 }
 */
 
-console.log('here are the jokes!!!');
-//console.log(KnockJokes);
+//KnockJokes.completeJoke();
 
-KnockJokes.completeJoke();
+
+//keep track of certain tweeters and repost everything that is 2 standard deviations above their average engagement rate.
+// neil degrass tyson, byu, byui, holland, 
