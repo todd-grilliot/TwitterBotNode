@@ -1,4 +1,3 @@
-console.log('running...')
 
 var jokes = [
     {name: 'Dozen', answer: 'anybody want to let me in?'},

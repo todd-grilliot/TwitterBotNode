@@ -11,63 +11,40 @@ var T = new Twit(Config);
 
 var dailyCounter = 0;
 
-//search for posts
-/*
-T.get('search/tweets', { q: 'banana since:2011-07-11', count: 2 }, function(err, data, response) {
-    console.log(data.statuses[1].text)
+setInterval(DailyTweet, 1000*60*60*20);
 
-    console.log(data);
+function DailyTweet(){
 
+  //define tweet content, post function, log statuses, dailyCounter++
+  var tweet = {status: Content[dailyCounter].text}
+  function post(){
+    T.post('statuses/update', tweet, function(err, data, response){
+    console.log("posting: " + Content[dailyCounter].text);
+    console.log("posting image: " + Content[dailyCounter].imagePath);
+    console.log("timestamp: " + data.created_at);
+    console.log("id_string: " + data.id_str);
+    dailyCounter++
   })
-  */
-/*
-  T.get('statuses/show/:id', {
-      name: 'hello world tweet',
-      id:  '1408251027262898176'
-    },
-    function(err,data,response) {
-      console.log(data);
-    })
-*/
-
-/*function DailyTweet(){
-  var tweet = {
-    status: Content[dailyCounter].text;
-    attachment_url:Content[dailyCounter].image
   }
 
-  T.post('statuses/update', tweet, function(err, data, response){
-  console.log("posting " + Content[dailyCounter].text);
-  console.log("posting " + Content[dailyCounter].image);
-  })
-
-dailyCounter++
-}*/
-
-//setInterval(DailyTweet, 1000*60*60*24);
-
-var b64content = fs.readFileSync('/path/to/img', { encoding: 'base64' })
-
-/*
-function TweetIt(){
-  var randy = Math.floor(Math.random() * 100);
-  
-  var tweet = {
-    status: 'Woah! Look at this wild number!! ' + randy,
-    in_reply_to_status_id: '1408251027262898176'
+  //if there is an image in the tweet, upload it, then post
+  var b64content;
+  if(Content[dailyCounter].imagePath){
+    //init b64 content with our image
+    b64content = fs.readFileSync(Content[dailyCounter].imagePath, { encoding: 'base64' });
+    //T.post upload fuction with our callback
+    T.post('media/upload', {media_data: b64content}, uploadCallback);
+    function uploadCallback(err, data, response){
+      mediaIdArray = [data.media_id_string];
+      //put the media_ids into the tweet object and give it a value vvv
+      tweet.media_ids = mediaIdArray;
+      post();
+    }
   }
-
-  T.post('statuses/update', tweet, function(err, data, response) {
-    //console.log(data)
-    console.log('We tweeted something!')
-    console.log(data)
-  })
-  
+  else { post(); }
 }
-*/
 
 //KnockJokes.completeJoke();
-
 
 //keep track of certain tweeters and repost everything that is 2 standard deviations above their average engagement rate.
 // neil degrass tyson, byu, byui, holland, 
