@@ -1,6 +1,7 @@
 console.log("starting bot.js bois...");
 
 var Twit = require('twit');
+const prompt = require('prompt-sync')({sigint: true});
 var Config = require('./config');
 var KnockJokes = require('./knockjokes');
 var Content = require('./content.json');
@@ -11,7 +12,9 @@ var T = new Twit(Config);
 
 var dailyCounter = 0;
 
-setInterval(DailyTweet, 1000*60*60*20);
+setInterval(DailyTweet, 1000*60*3);
+//var string = prompt('give me a string');
+//console.log('guns and butts' + string);
 
 function DailyTweet(){
 
@@ -45,6 +48,8 @@ function DailyTweet(){
 }
 
 //KnockJokes.completeJoke();
+
+exports.completeJokeIndex = KnockJokes.completeJoke;
 
 //keep track of certain tweeters and repost everything that is 2 standard deviations above their average engagement rate.
 // neil degrass tyson, byu, byui, holland, 

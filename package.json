@@ -9,6 +9,7 @@
   "author": "Todd Grilliot",
   "license": "ISC",
   "dependencies": {
+    "prompt-sync": "^4.2.0",
     "twit": "^2.2.11"
   }
 }
