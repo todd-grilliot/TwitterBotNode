@@ -8,7 +8,7 @@ var KnockJokes = require('./knockjokes');
 //KnockJokes.tellJoke(); ^^^
 var Content = require('./content.json');
 var fs = require('fs');
-var T = new Twit(Config);
+var T = new Twit(Config); //oauth <<<
 
 // *** Global Vars ***
 var dailyCounter = 0;
@@ -46,7 +46,7 @@ function DailyTweet(){
 };
 */
 
-
+//write some code to get the data that you are looking for.
 
 //keep track of certain tweeters and repost everything that is 2 standard deviations above their average engagement rate.
 // neil degrass tyson, byu, byui, holland 
