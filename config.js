@@ -6,5 +6,4 @@ access_token:         '1375331828886728707-XUmMS9h8cVnDOb9ZBiK1LYEW2grzKQ',
 access_token_secret:  'pjbd8f6qTAe8QmnaWnTR5vxgNGbFXxBlVF8wy2vROOlvR',
 timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 strictSSL:            true,     // optional - requires SSL certificates to be valid.
-
 }

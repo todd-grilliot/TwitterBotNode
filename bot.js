@@ -2,20 +2,20 @@ console.log("starting bot.js bois...");
 
 var Twit = require('twit');
 const prompt = require('prompt-sync')({sigint: true});
+//var string = prompt('give me a string'); ^^^
 var Config = require('./config');
 var KnockJokes = require('./knockjokes');
+//KnockJokes.tellJoke(); ^^^
 var Content = require('./content.json');
 var fs = require('fs');
-//OAUTH baby
 var T = new Twit(Config);
-//done OAUTH
 
+// *** Global Vars ***
 var dailyCounter = 0;
+// *** End Global Vars ***
 
+/** 
 setInterval(DailyTweet, 1000*60*3);
-//var string = prompt('give me a string');
-//console.log('guns and butts' + string);
-
 function DailyTweet(){
 
   //define tweet content, post function, log statuses, dailyCounter++
@@ -27,9 +27,7 @@ function DailyTweet(){
     console.log("timestamp: " + data.created_at);
     console.log("id_string: " + data.id_str);
     dailyCounter++
-  })
-  }
-
+  })}
   //if there is an image in the tweet, upload it, then post
   var b64content;
   if(Content[dailyCounter].imagePath){
@@ -45,11 +43,10 @@ function DailyTweet(){
     }
   }
   else { post(); }
-}
+};
+*/
 
-//KnockJokes.completeJoke();
 
-exports.completeJokeIndex = KnockJokes.completeJoke;
 
 //keep track of certain tweeters and repost everything that is 2 standard deviations above their average engagement rate.
-// neil degrass tyson, byu, byui, holland, 
+// neil degrass tyson, byu, byui, holland 

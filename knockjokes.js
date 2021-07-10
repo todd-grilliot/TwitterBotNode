@@ -25,4 +25,4 @@ function completeJoke(){
 }
 
 //completeJoke();
-exports.completeJoke = completeJoke;
+exports.tellJoke = completeJoke;
