@@ -12,7 +12,25 @@ var T = new Twit(Config); //oauth <<<
 
 // *** Global Vars ***
 var dailyCounter = 0;
+var tmCount = 6;
+var tmParams ={
+  name: 'elon musk $name$',
+  user_id: 44196397,
+  count: tmCount
+};
 // *** End Global Vars ***
+
+T.get('statuses/user_timeline', tmParams, function (err, data, response){
+  console.log(tmParams)
+  if(err){console.log('error! in the t.get...')}else{
+    console.log('getting user_timeline...')
+    //console.log('data:\n' + JSON.stringify(data.text,null,2))
+    //console.log(data[3].text)
+    for (let i = 0; i < data.length; i++) {
+    console.log(data[i].text);
+    }
+  }
+});
 
 /** 
 setInterval(DailyTweet, 1000*60*3);
