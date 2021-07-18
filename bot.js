@@ -12,7 +12,7 @@ var T = new Twit(Config); //oauth <<<
 
 // *** Global Vars ***
 var dailyCounter = 0;
-var tmCount = 6;
+var tmCount = 10;
 var tmParams ={
   name: 'elon musk $name$',
   user_id: 44196397,
@@ -20,15 +20,22 @@ var tmParams ={
 };
 // *** End Global Vars ***
 
+//prolly want text, created_at, id_str, image?, retweet_count, favorite_count
 T.get('statuses/user_timeline', tmParams, function (err, data, response){
   console.log(tmParams)
   if(err){console.log('error! in the t.get...')}else{
     console.log('getting user_timeline...')
-    //console.log('data:\n' + JSON.stringify(data.text,null,2))
+    //console.log('data:\n' + JSON.stringify(data,null,2))
     //console.log(data[3].text)
     for (let i = 0; i < data.length; i++) {
-    console.log(data[i].text);
+      console.log('new line...')
+      console.log(data[i].text);
+      console.log(data[i].created_at);
+      console.log(data[i].id_str);
+      console.log(data[i].retweet_count);
+      console.log(data[i].favorite_count);
     }
+    //maybe he makes a new object or an array of tweet objects, looks at the data of these objects, and then makes his decision.
   }
 });
 
