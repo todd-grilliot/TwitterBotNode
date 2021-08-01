@@ -117,7 +117,7 @@ function retweet(theTweet){
     })
   }
 
-setInterval(selectUser, 1000*60*8);
+setInterval(selectUser, 1000*60*60*8);
 //selectUser();
 
 /*
