@@ -92,7 +92,7 @@ async function chooseRetweet(retweetArray){
 // and then it gives that array back to chooseRetweet.
 function myRecentTweets(){
   return new Promise((resolve, reject) => {
-    T.get('statuses/user_timeline', {count: tmCount * 3}, (err, data, response) => {
+    T.get('statuses/user_timeline', {count: tmCount * 10}, (err, data, response) => {
       //returns an array of my (tmCount) most recent tweets
       for (let i = 0; i < data.length; i++) {
         //if var retweetIdStr is unidentified then we set it to null
